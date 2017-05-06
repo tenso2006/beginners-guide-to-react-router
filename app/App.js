@@ -24,8 +24,8 @@ const Home = () => <h1>Welcome Home buddy</h1>
 const Address = (props) => (
   <div>
     <br />
-    <Link to='/address'>Twitter Feed</Link>
-    <Link to='/address/instagram'>Instagram Feed </Link>
+    <IndexLink activeClassName={'active'} to='/address'>Twitter Feed</IndexLink>
+    <IndexLink activeClassName={'active'} to='/address/instagram'>Instagram Feed </IndexLink>
     <h2>Reach me at 123, GH st, SF, CA 90210 </h2>
     {props.children}
   </div>
@@ -35,9 +35,9 @@ const NotFound = () => <h2>Sorry! This Page not is found!</h2>
 
 const Nav = () => (
   <div>
-    <IndexLink activeStyle={{color:'#53acff'}} to='/'>Home</IndexLink>
-    <IndexLink activeStyle={{color:'#53acff'}} to='/address'>My Address</IndexLink>
-    <IndexLink activeStyle={{color:'#53acff'}} to='/about'>About</IndexLink>
+    <IndexLink activeClassName={'active'} to='/'>Home</IndexLink>
+    <IndexLink activeClassName={'active'} to='/address'>My Address</IndexLink>
+    <IndexLink activeClassName={'active'} to='/about'>About</IndexLink>
   </div>
 )
 
