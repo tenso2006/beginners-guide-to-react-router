@@ -35,8 +35,9 @@ const NotFound = () => <h2>Sorry! This Page not is found!</h2>
 
 const Nav = () => (
   <div>
-    <Link to='/'>Home</Link>
-    <Link to='/address'>My Address</Link>
+    <Link activeStyle={{color:'#53acff'}} to='/'>Home</Link>
+    <Link activeStyle={{color:'#53acff'}} to='/address'>My Address</Link>
+    <Link activeStyle={{color:'#53acff'}} to='/about'>About</Link>
   </div>
 )
 
