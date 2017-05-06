@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, IndexLink } from 'react-router';
 
 // const App = () => <h1>Hello World!</h1>
 class App extends Component {
@@ -35,9 +35,9 @@ const NotFound = () => <h2>Sorry! This Page not is found!</h2>
 
 const Nav = () => (
   <div>
-    <Link onlyActiveOnIndex activeStyle={{color:'#53acff'}} to='/'>Home</Link>
-    <Link onlyActiveOnIndex activeStyle={{color:'#53acff'}} to='/address'>My Address</Link>
-    <Link onlyActiveOnIndex activeStyle={{color:'#53acff'}} to='/about'>About</Link>
+    <IndexLink activeStyle={{color:'#53acff'}} to='/'>Home</IndexLink>
+    <IndexLink activeStyle={{color:'#53acff'}} to='/address'>My Address</IndexLink>
+    <IndexLink activeStyle={{color:'#53acff'}} to='/about'>About</IndexLink>
   </div>
 )
 
