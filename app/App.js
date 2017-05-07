@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, IndexLink } from 'react-router';
 
 // const App = () => <h1>Hello World!</h1>
 class App extends Component {
@@ -11,6 +11,10 @@ class App extends Component {
           <Route path='address' component={Address}>
             <IndexRoute component={TwitterFeed}/>
             <Route path='instagram' component={InstagramFeed} />
+          </Route>
+          <Route path='about' component={About} />
+          <Route path='namedComponents' component={NamedComponents}>
+            <IndexRoute components={{title: Title, subTitle: SubTitle}} />
           </Route>
           <Route path='*' component={NotFound} />
         </Route>
@@ -24,8 +28,8 @@ const Home = () => <h1>Welcome Home buddy</h1>
 const Address = (props) => (
   <div>
     <br />
-    <Link to='/address'>Twitter Feed</Link>
-    <Link to='/address/instagram'>Instagram Feed </Link>
+    <IndexLink activeClassName={'active'} to='/address'>Twitter Feed</IndexLink>
+    <IndexLink activeClassName={'active'} to='/address/instagram'>Instagram Feed </IndexLink>
     <h2>Reach me at 123, GH st, SF, CA 90210 </h2>
     {props.children}
   </div>
@@ -35,8 +39,10 @@ const NotFound = () => <h2>Sorry! This Page not is found!</h2>
 
 const Nav = () => (
   <div>
-    <Link to='/'>Home</Link>
-    <Link to='/address'>My Address</Link>
+    <IndexLink activeClassName={'active'} to='/'>Home</IndexLink>
+    <IndexLink activeClassName={'active'} to='/address'>My Address</IndexLink>
+    <IndexLink activeClassName={'active'} to='/about'>About</IndexLink>
+    <IndexLink activeClassName={'active'} to='/namedComponents'>Named Components</IndexLink>
   </div>
 )
 
@@ -49,4 +55,16 @@ const Container = (props) => (
 
 const TwitterFeed = () => <h2>Twitter feed is On ;)</h2>
 const InstagramFeed = () => <h2>Instagram feed is so colorful :) :)</h2>
+
+const NamedComponents = (props) => (
+  <div>
+    {props.Title}<br />
+    {props.SubTitle}
+  </div>
+)
+
+const About = () => <h3>This is About page</h3>
+const Title = () => <h2>Hello from Title</h2>
+const SubTitle = () => <h2>Hello from SubTitle</h2>
+
 export default App;
